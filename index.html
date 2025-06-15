@@ -309,11 +309,29 @@
   font-size: 1rem;
 }
 
-.product:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  transform: scale(1.02);
-  transition: all 0.3s ease;
+.popup-box {
+  position: fixed;
+  bottom: 30px;
+  left: 20px; /* 👈 Floating on left */
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--gold);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  font-size: 0.9rem;
+  font-weight: bold;
+  max-width: 300px;
+  display: none;
+  z-index: 9999;
+  animation: fadeIn 1s ease forwards;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 </style>
 </head>
@@ -433,9 +451,13 @@
   <a href="https://wa.me/918106700347" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
     <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" />
   </a>
+  
+  <div id="testimonial-popup" class="popup-box">
+  <p id="popup-message">Loading review...</p>
+</div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
-  <script>
     function toggleMenu() {
       const nav = document.getElementById('nav-menu');
       nav.classList.toggle('active');
@@ -448,6 +470,36 @@
       easing: 'ease-in-out',
       reset: false
     });
+	<script>
+  const popupMessages = [
+    "Fatima: Trusted place to purchase! 💖",
+    "Aarav: Amazing service and collection!",
+    "Zoya: I got my order in 2 days 👑",
+    "Rahul: Affordable & premium designs.",
+    "Meera: They respond quickly on WhatsApp!",
+    "Sameer: Wife loved the necklace 💍",
+    "Priya: Real gold & beautiful packaging.",
+    "Kareem: Ordered again! Very happy ✨",
+    "Rani: Better than big showrooms!",
+    "Ali: Worth every rupee. 💰"
+  ];
+
+  let currentMsg = 0;
+  const popup = document.getElementById("testimonial-popup");
+  const popupText = document.getElementById("popup-message");
+
+  function showPopup() {
+    popup.style.display = "block";
+    popupText.textContent = popupMessages[currentMsg];
+    currentMsg = (currentMsg + 1) % popupMessages.length;
+  }
+
+  setTimeout(() => {
+    showPopup(); // first show after 2 sec
+    setInterval(showPopup, 5000); // every 5 sec
+  }, 2000);
+
+
   </script>
 
 </body>
