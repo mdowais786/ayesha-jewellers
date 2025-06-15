@@ -150,7 +150,7 @@
   }
 
   .product, .gallery-item {
-    border: 3px solid var(--gold);
+    border: 1px solid var(--gold);
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
@@ -247,6 +247,74 @@
     right: 20px;
     z-index: 999;
   }
+  /* === Reviews Section === */
+#reviews {
+  background-color: #f9f9f9;
+  padding: 4rem 2rem;
+}
+
+#reviews .product {
+  background: var(--white);
+  padding: 2rem;
+  text-align: left;
+  font-style: italic;
+  border-left: 4px solid var(--gold);
+  position: relative;
+}
+
+#reviews .product h4 {
+  margin-top: 1rem;
+  font-style: normal;
+  color: var(--black);
+  font-weight: bold;
+}
+
+/* === Button Styles === */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--black);
+  color: var(--gold);
+}
+
+/* === Responsive Fixes === */
+@media (max-width: 600px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Optional: Star Rating === */
+.stars {
+  color: #f8c400;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.product:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+  transition: all 0.3s ease;
+}
+
 </style>
 </head>
 <body>
@@ -271,25 +339,39 @@
   </section>
 
   <section id="products" class="products">
-    <h2>Our Collection</h2>
-    <div class="grid">
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Necklace" alt="Necklace">
-        <h3>💎 Ruby Necklace</h3>
-        <p>Elegant handcrafted ruby necklace with gold finish.</p>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Bracelet" alt="Bracelet">
-        <h3>📿 Gold Bracelet</h3>
-        <p>Classic bangle with intricate design patterns.</p>
-      </div>
-      <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Earrings" alt="Earrings">
-        <h3>✨ Chandelier Earrings</h3>
-        <p>Statement pieces to dazzle any occasion.</p>
-      </div>
+  <h2>Our Collection</h2>
+  <div class="grid">
+
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200.png?text=Necklace" alt="Necklace">
+      <h3>💎 Ruby Necklace</h3>
+      <p>Elegant handcrafted ruby necklace with gold finish.</p>
+      <p style="color: #d4af37; font-weight: bold;">Price: ₹18,500</p>
+      <p style="color: red; font-weight: bold;">🔥 Limited Stock</p>
+      <a class="btn" href="https://wa.me/918106700347?text=I%20want%20to%20order%20the%20Ruby%20Necklace" target="_blank">Order via WhatsApp</a>
     </div>
-  </section>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200.png?text=Bracelet" alt="Bracelet">
+      <h3>📿 Gold Bracelet</h3>
+      <p>Classic bangle with intricate design patterns.</p>
+      <p style="color: #d4af37; font-weight: bold;">Price: ₹9,999 <span style="text-decoration: line-through; color: gray; font-size: 0.9rem;">₹11,499</span></p>
+      <p style="color: green; font-weight: bold;">🎉 15% OFF</p>
+      <a class="btn" href="https://wa.me/918106700347?text=I%20want%20to%20order%20the%20Gold%20Bracelet" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200.png?text=Earrings" alt="Earrings">
+      <h3>✨ Chandelier Earrings</h3>
+      <p>Statement pieces to dazzle any occasion.</p>
+      <p style="color: #d4af37; font-weight: bold;">Price: ₹7,500</p>
+      <p style="color: red; font-weight: bold;">⏳ Selling Fast!</p>
+      <a class="btn" href="https://wa.me/918106700347?text=I%20want%20to%20order%20the%20Chandelier%20Earrings" target="_blank">Order via WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
 
   <section id="gallery" class="gallery">
     <h2>Jewellery Gallery</h2>
@@ -310,6 +392,24 @@
     <h2>About Ayesha Jewellers</h2>
     <p>Rooted in tradition and crafted for modern elegance, Ayesha Jewellers brings to you a collection of fine, artistic, and timeless jewelry. Every piece is designed with care, for women who shine bright.</p>
   </section>
+  
+<section id="reviews">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="grid">
+    <div class="product">
+      <p>“Absolutely loved the ruby necklace! The craftsmanship is exquisite. Will buy again.”</p>
+      <div class="stars">★★★★★</div>
+      <h4>– Sarah Ali</h4>
+    </div>
+    <div class="product">
+      <p>“Received my order on time. The design is traditional yet modern. Highly recommended!”</p>
+      <div class="stars">★★★★☆</div>
+      <h4>– Meera J.</h4>
+    </div>
+  </div>
+</section>
+
+
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
