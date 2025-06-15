@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayesha Jewellers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --blush-pink: #f9d5e5;
+      --rose-quartz: #f7a1c4;
+      --dusky-pink: #e0668e;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--white);
+      color: var(--dusky-pink);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--blush-pink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      0% { transform: translateY(-100%); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    header img {
+      width: 60px;
+      margin-right: 1rem;
+    }
+
+    header h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.8rem;
+      color: var(--dusky-pink);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--dusky-pink);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--rose-quartz);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dusky-pink);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-top: 0.5rem;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav.active {
+        display: flex;
+      }
+    }
+
+    .hero {
+      background: linear-gradient(to right, var(--rose-quartz), var(--blush-pink));
+      color: var(--white);
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+    }
+
+    .products, .gallery {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .products h2, .gallery h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--dusky-pink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product, .gallery-item {
+      border: 1px solid var(--rose-quartz);
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+      background: var(--blush-pink);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover, .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(224, 102, 142, 0.3);
+    }
+
+    .product img, .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .product h3 {
+      margin: 1rem 0 0.5rem;
+      color: var(--dusky-pink);
+    }
+
+    .about, .contact {
+      padding: 3rem 1rem;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .about h2, .contact h2 {
+      color: var(--dusky-pink);
+      margin-bottom: 1rem;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact input, .contact textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--rose-quartz);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background: var(--dusky-pink);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .contact button:hover {
+      background: var(--rose-quartz);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--dusky-pink);
+      color: var(--white);
+    }
+
+    .social-icons {
+      margin: 1rem 0;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: var(--blush-pink);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Ayesha Jewellers Logo" />
+      <h1>Ayesha Jewellers</h1>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="nav-menu">
+      <a href="#products">Jewels</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Graceful Designs. Timeless Beauty.</h2>
+    <p>Discover handcrafted elegance with Ayesha Jewellers.</p>
+  </section>
+
+  <section id="products" class="products">
+    <h2>Our Collection</h2>
+    <div class="grid">
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200.png?text=Necklace" alt="Necklace">
+        <h3>💎 Ruby Necklace</h3>
+        <p>Elegant handcrafted ruby necklace with gold finish.</p>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200.png?text=Bracelet" alt="Bracelet">
+        <h3>📿 Gold Bracelet</h3>
+        <p>Classic bangle with intricate design patterns.</p>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/300x200.png?text=Earrings" alt="Earrings">
+        <h3>✨ Chandelier Earrings</h3>
+        <p>Statement pieces to dazzle any occasion.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="gallery">
+    <h2>Jewellery Gallery</h2>
+    <div class="grid">
+      <div class="gallery-item">
+        <a href="https://via.placeholder.com/600x400.png?text=Ring" data-lightbox="jewels"><img src="https://via.placeholder.com/300x200.png?text=Ring" alt="Ring"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://via.placeholder.com/600x400.png?text=Set" data-lightbox="jewels"><img src="https://via.placeholder.com/300x200.png?text=Set" alt="Jewelry Set"></a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://via.placeholder.com/600x400.png?text=Pendant" data-lightbox="jewels"><img src="https://via.placeholder.com/300x200.png?text=Pendant" alt="Pendant"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Ayesha Jewellers</h2>
+    <p>Rooted in tradition and crafted for modern elegance, Ayesha Jewellers brings to you a collection of fine, artistic, and timeless jewelry. Every piece is designed with care, for women who shine bright.</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ayesha Jewellers. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#" title="Instagram"><i class="lucide lucide-instagram"></i></a>
+      <a href="#" title="Facebook"><i class="lucide lucide-facebook"></i></a>
+      <a href="#" title="Mail"><i class="lucide lucide-mail"></i></a>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/918106700347" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" />
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-menu');
+      nav.classList.toggle('active');
+    }
+
+    ScrollReveal().reveal('.hero, .products, .about, .contact, .product, .gallery-item, form', {
+      duration: 1000,
+      distance: '50px',
+      origin: 'bottom',
+      easing: 'ease-in-out',
+      reset: false
+    });
+  </script>
+
+</body>
+</html>
